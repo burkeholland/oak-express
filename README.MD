@@ -1,4 +1,4 @@
-# Express-Style Oak
+# Oak Express
 
 Oak is a web framework for Deno. It is not Express. In fact, it's modeled (and also somewhat named) after Koa. But Express comes with a nice, opinionated setup for scaffolding a new application. I like that. But I don't have time to create a Yeoman generator (looks hard) so here is a template repo instead.
 
