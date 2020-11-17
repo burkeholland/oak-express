@@ -1,7 +1,6 @@
 import { Application, Context, Router, send } from "./deps.ts";
 import { handleError } from "./shared/handleError.ts";
 import * as indexRouter from "./routes/indexRouter.ts";
-// import usersRouter from "./routes/usersRouter.ts";
 
 const app = new Application();
 const router = new Router();
