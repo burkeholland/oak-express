@@ -1,18 +1,17 @@
 import { Application, Context, Router, send } from "./deps.ts";
-import * as indexRoutes from "./routes/indexRoutes.ts";
-import { handleError } from "./utils/handleError.ts";
+import { handleError } from "./shared/handleError.ts";
+import * as indexRouter from "./routes/indexRouter.ts";
+// import usersRouter from "./routes/usersRouter.ts";
 
 const app = new Application();
 const router = new Router();
 
-// named routes
-router.get("/", indexRoutes.get);
-router.get("/albums");
+indexRouter.use("/", router);
 
 // static assets
 router.get("/public/:path+", async (ctx) => {
   await send(ctx, ctx.request.url.pathname, {
-    root: `${Deno.cwd()}`
+    root: `${Deno.cwd()}`,
   });
 });
 

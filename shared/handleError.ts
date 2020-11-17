@@ -1,6 +1,6 @@
 import { isHttpError } from "https://deno.land/x/oak@v6.3.1/httpError.ts";
 import { Context } from "../deps.ts";
-import { render } from "./hbs.ts";
+import hbs from "./hbs.ts";
 
 export async function handleError(err: Error, ctx: Context) {
   let status = 500;
@@ -8,7 +8,7 @@ export async function handleError(err: Error, ctx: Context) {
     status = err.status;
   }
 
-  ctx.response.body = await render("error", {
+  ctx.response.body = await hbs.renderView("error", {
     message: err,
     stack: err.stack,
     status: status
